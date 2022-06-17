@@ -1,0 +1,383 @@
+:root {
+    font-size: 16px;
+    --clrInfo: #00e1ff;
+    --neonpink: #f0f;
+    --neonblue: #00c3ff;
+    --blueClr: #1F51FF;
+    --neongreen: springgreen;
+    --brightblue: #00c3ff;
+    --neonyellow: #ffee00;
+    --neongreen: springgreen;
+    
+}
+
+* {
+    box-sizing: content-box;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    margin: 0;
+    background-color: #141b26;
+    color: #ddd;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h1 {
+    font-family: 'Koulen', cursive;
+    font-size: 10rem;
+    margin: 0;
+}
+
+h1, h2, h3 {
+    text-align: center;
+}
+
+a {
+    color: #ddd;
+}
+
+nav {
+    padding-right: 1rem;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1rem;
+    height: 100px;
+    width: 100vw;
+    transition: all 400ms ease;
+    z-index: 99;
+
+    a {
+        color: inherit;
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+        text-decoration: none;
+    }
+}
+
+.navDiv {
+    margin-right: 1.5rem;
+
+    svg {
+        height: 2rem;
+        width: 2rem;
+    }
+
+    &:hover svg {
+        color: #f0f;
+        transition: color 200ms ease;
+    }
+}
+
+
+#welcome {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#about {
+    display: flex;
+    justify-content: space-around;
+
+    img {
+        object-fit: cover;
+    }
+}
+.tile {
+    display: flex;
+
+    >div {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &:hover {
+        .links {
+            opacity: 100%;
+        }
+    }
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    h3 {
+        background-color: #141b26;
+        z-index: 2;
+        padding: 0 1.5rem;
+    }
+}
+
+.links {
+    opacity: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    transition: all 250ms ease;
+
+    svg {
+        height: 2.5rem;
+        width: 2.5rem;
+
+        &:hover {
+            color: #00e1ff;
+        }
+    }
+}
+
+.smallTile {
+    z-index: 1;
+    position: relative;
+    overflow: hidden;
+    &:hover .links {
+        opacity: 1;
+    }
+    .links {
+        position: absolute;
+        top: 40%;
+        z-index: 50;
+    }
+    img {
+        z-index: 2;
+    }
+    &:hover {
+        .mask {
+            opacity: 0.8;
+        }
+    }
+}
+.mask {
+    opacity: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: black;
+    z-index: 20;
+    transition: opacity ease 250ms;
+}
+.line {
+    position: absolute;
+    border: 1px solid;
+    width: 100%;
+}
+
+.skill {
+    color: green;
+    stroke-width: 3px;
+    fill: transparent;
+    stroke-dasharray: 260;
+    
+}
+.skillDiv {
+    display: flex;
+    background-color:#3393a0;
+    align-items: center;
+    padding: 0 1rem;
+    svg {
+        background-color: #141b26;
+    }
+}
+#skills {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#smallProjects {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+    gap: 1rem;
+
+    img {
+        width: 100%;
+        aspect-ratio: initial;
+        border-radius: 2%;
+    }
+}
+form {
+    width: 50%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 10rem;
+    input {
+        height: 2rem;
+    }
+    input, textarea {
+        color: #00e1ff;
+        margin-bottom: 1rem;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        background: none;
+        transition: all 1000ms ease;
+        width: 50%;
+        &:focus {
+            width: 100%;
+        }
+    }
+    textarea {
+        height: 10rem;
+    }
+}
+button[type="submit"] {
+    background-color: springgreen;
+    height: 2rem;
+    width: 50%;
+}
+
+/* width */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+
+::-webkit-scrollbar-track {
+    background: #2c3e50;
+}
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+
+    &:hover {
+        background: #555;
+    }
+}
+
+@media (min-width: 768px) {
+    #about {
+        justify-content: space-around;
+    
+        img {
+            height: 400px;
+            width: 400px;
+            object-fit: cover;
+        }
+    
+        .paragraph {
+            width: 50%;
+        }
+    }
+    .skillDiv {
+        height: 150px;
+        gap: 1rem;
+        padding: 0 1rem;
+        img, svg {
+            height: 105px;
+            width: auto;
+        }
+        svg {
+            background-color: #141b26;
+        }
+    }
+    #skills {
+        padding: 0 2rem;
+        gap: 1rem;
+    }
+    .tile {
+        margin: 2.5rem;
+        gap: 2rem;
+    
+        &.reverse {
+            flex-direction: row-reverse;
+        }
+    
+        img {
+            width: 60%;
+        }
+    
+        >div {
+            width: 40%;
+        }
+    
+        &:hover {
+            .links {
+                opacity: 100%;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        font-size: 12px;
+    }
+    nav {
+        
+        .navText {
+            display: none;
+        }
+    }
+    #about {
+        flex-direction: column;
+        margin: 0 auto;
+        width: 90%;
+        img {
+            width: 100%;
+            height: 350px;
+        }
+        .paragraph {
+            width: 100%;
+        }
+    }
+    #smallProjects {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        row-gap: 0;
+    }
+    #skills {
+        gap: 0.25rem;
+        justify-content: center;
+    }
+    .skillDiv {
+        height: 60px;
+        padding: 0 0.25rem 0 0.75rem;
+        img {
+            width: 50px;
+            max-height: 99%;
+        }
+        svg {
+            transform: scale(0.5);
+        }
+    }
+    .tile, .tile.reverse {
+        flex-direction: column;
+        width: 90%;
+        margin: 0 auto 0.5rem;
+        >div {
+            width: 100%;
+        }
+        img {
+            width: 100%;
+            aspect-ratio: initial;
+        }
+        .links {
+            margin-bottom: 1rem;
+        }
+    }
+    form {
+        width: 90%;
+        input, textarea {
+            width: 75%;
+        }
+    }
+}
