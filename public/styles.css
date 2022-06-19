@@ -1,13 +1,22 @@
 :root {
   font-size: 16px;
-  --clrInfo: #00e1ff;
-  --neonpink: #f0f;
+  --clr1: #141b26;
+  --clr2: #ddd;
+  --clr3: #00e1ff;
+  --clr4: #1f51ff;
+  --clr5: #f0f;
+  --clr6: #ff00ff8f;
   --neonblue: #00c3ff;
   --blueClr: #1F51FF;
   --neongreen: springgreen;
   --brightblue: #00c3ff;
   --neonyellow: #ffee00;
-  --neongreen: springgreen;
+  --clrInfo: var(--clr3);
+  --neonpink: var(--clr5);
+  --textClr: var(--clr2);
+  --bgClr: var(--clr1);
+  --tertiaryClr: black;
+  --mode:dark ;
 }
 
 * {
@@ -20,9 +29,14 @@ html {
 
 body {
   margin: 0;
-  background-color: #141b26;
-  color: #ddd;
+  background-color: var(--bgClr);
+  color: var(--textClr);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  transition: all 250ms ease;
+}
+body.dark {
+  color: var(--bgClr);
+  background-color: var(--textClr);
 }
 
 h1 {
@@ -36,7 +50,7 @@ h1, h2, h3 {
 }
 
 a {
-  color: #ddd;
+  color: var(--textClr);
 }
 
 nav {
@@ -65,6 +79,7 @@ nav a {
 .navDiv svg {
   height: 2rem;
   width: 2rem;
+  color: var(--clrInfo);
 }
 .navDiv:hover svg {
   color: #f0f;
@@ -77,6 +92,30 @@ nav a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
+}
+#welcome svg, #welcome img {
+  fill: var(--clrInfo);
+  color: var(--clrInfo);
+}
+
+.socials {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.socials svg {
+  height: 3rem;
+  width: 3rem;
+}
+
+.lineV {
+  border-left: var(--clrInfo) 2px solid;
+  height: 100%;
 }
 
 #about {
@@ -104,8 +143,7 @@ nav a {
   align-items: center;
 }
 .header h3 {
-  background-color: #141b26;
-  z-index: 2;
+  background-color: var(--bgClr);
   padding: 0 1.5rem;
 }
 
@@ -124,7 +162,7 @@ nav a {
   width: 2.5rem;
 }
 .links svg:hover {
-  color: #00e1ff;
+  color: var(--clrInfo);
 }
 
 .smallTile {
@@ -161,8 +199,9 @@ nav a {
 
 .line {
   position: absolute;
-  border: 1px solid;
+  border-top: 2px solid;
   width: 100%;
+  z-index: -1;
 }
 
 .skill {
@@ -205,13 +244,13 @@ form {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-bottom: 10rem;
+  margin-bottom: 2rem;
 }
 form input {
   height: 2rem;
 }
 form input, form textarea {
-  color: #00e1ff;
+  color: var(--clrInfo);
   margin-bottom: 1rem;
   border-top: none;
   border-left: none;
@@ -231,6 +270,30 @@ button[type=submit] {
   background-color: springgreen;
   height: 2rem;
   width: 50%;
+}
+
+#response {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  left: -100vw;
+  top: 0;
+  transition: all 500ms ease;
+  backdrop-filter: blur(10px) grayscale(0.5);
+}
+#response.show {
+  left: 0;
+}
+#response::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: black;
+  z-index: -25;
+  opacity: 0.75;
 }
 
 /* width */
@@ -274,7 +337,7 @@ button[type=submit] {
     width: auto;
   }
   .skillDiv svg {
-    background-color: #141b26;
+    background-color: var(--bgClr);
   }
   #skills {
     padding: 0 2rem;

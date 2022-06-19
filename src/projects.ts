@@ -85,7 +85,7 @@ export const smallProjects: Project[] = [
         repo: `https://github.com/cossieB/portfolio/tree/main/src/Components/Quotes`
     }, {
         title: `Markdown Preview`,
-        path: `markdown-preview`,
+        path: `/markdown-preview`,
         img: `screenshots/markdown.png`,
         description: `This neat little tool allows you to type markdown code and instantly see the output. Useful for git README.md files.`,
         stack: [`typescript`, `react`, `firebase`, `framer motion`, `marked`],
