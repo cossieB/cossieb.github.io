@@ -117,7 +117,7 @@ form.addEventListener('submit', async e => {
     const company = (document.getElementById('company')! as HTMLInputElement).value
     const email = (document.getElementById('email')! as HTMLInputElement).value
     const msg = (document.getElementById('msg')! as HTMLTextAreaElement).value
-    const data = await fetch('http://cossie.herokuapp.com/api/email', {
+    const data = await fetch('https://cossie.herokuapp.com/api/email', {
         method: "POST",
         body: JSON.stringify({name, company, email, msg}),
         headers: {
