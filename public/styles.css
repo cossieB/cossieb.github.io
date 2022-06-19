@@ -108,6 +108,9 @@ nav a {
   flex-direction: column;
   align-items: center;
 }
+.socials > a {
+  margin-top: 1rem;
+}
 .socials svg {
   height: 3rem;
   width: 3rem;
@@ -163,6 +166,14 @@ nav a {
 }
 .links svg:hover {
   color: var(--clrInfo);
+}
+
+.mainDivs {
+  transition: all 400ms ease;
+}
+.mainDivs.hide {
+  opacity: 0;
+  transform: translateX(-50%);
 }
 
 .smallTile {
