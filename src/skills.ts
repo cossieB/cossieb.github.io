@@ -108,7 +108,7 @@ export const skills: Lang[] = [
     {
         language: "Firebase",
         logo: "/logos/firebase.svg",
-        skill: 8
+        skill: 6
     },
     {
         language: "GraphQL",

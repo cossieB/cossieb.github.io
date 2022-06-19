@@ -2,12 +2,13 @@ import { largeProjects, smallProjects } from "./projects";
 import createLinksDiv from "./linksDiv";
 import { skills } from "./skills";
 import { skillsMap } from "./skillsMap";
+import animateInOnScroll from "./animate";
 // import './index.scss'
 
 const website = 'https://cossie-91.web.app/'
 const projectsDiv = document.getElementById('projects') as HTMLDivElement;
-const body = document.querySelector('body')!
 const root = document.querySelector(':root')! as any
+const about = document.getElementById('about') as HTMLDivElement
 
 largeProjects.forEach((proj, idx) => {
     let div = document.createElement('div')
@@ -51,7 +52,8 @@ smallProjects.forEach((proj, idx) => {
 const nav = document.querySelector('nav')!
 let pos = window.scrollY
 
-document.addEventListener('scroll', e => {
+
+document.addEventListener('scroll', () => {
     if (window.scrollY < pos) {
         nav.style.top = '0px';
         if (window.scrollY > 100) {
@@ -70,7 +72,11 @@ document.addEventListener('scroll', e => {
     else {
         nav.style.top = '0px';
     }
-    pos = window.scrollY
+    pos = window.scrollY;
+    animateInOnScroll(projectsDiv)
+    animateInOnScroll(smallProjectsDiv)
+    animateInOnScroll(about)
+    animateInOnScroll(skillsDiv)
 })
 const skillsDiv = document.getElementById('skills')!
 
@@ -92,6 +98,9 @@ skills.forEach(skill => {
     circle.setAttribute('cy', '50')
     circle.setAttribute('r', '40');
     svg.appendChild(circle)
+    const title = document.createElementNS("http://www.w3.org/2000/svg", 'title');
+    title.textContent = summary;
+    svg.appendChild(title)
     const img = document.createElement('img')
     img.title = skill.language
     img.src = `${website}${skill.logo}`
