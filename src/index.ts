@@ -6,6 +6,8 @@ import { skillsMap } from "./skillsMap";
 
 const website = 'https://cossie-91.web.app/'
 const projectsDiv = document.getElementById('projects') as HTMLDivElement;
+const body = document.querySelector('body')!
+const root = document.querySelector(':root')! as any
 
 largeProjects.forEach((proj, idx) => {
     let div = document.createElement('div')
@@ -53,18 +55,17 @@ document.addEventListener('scroll', e => {
     if (window.scrollY < pos) {
         nav.style.top = '0px';
         if (window.scrollY > 100) {
-            nav.style.backgroundColor = '#ddd'
-            nav.style.color = '#222'
+            nav.style.backgroundColor = 'var(--tertiaryClr)'
         }
         else {
             nav.style.background = 'none';
-            nav.style.color = '#ddd'
+            nav.style.color = 'var(--textClr)'
         }
     }
     else if (window.scrollY > 100) {
         nav.style.top = '-100px';
         nav.style.background = 'none';
-        nav.style.color = '#ddd';
+        nav.style.color = 'var(--textClr)';
     }
     else {
         nav.style.top = '0px';
@@ -99,3 +100,59 @@ skills.forEach(skill => {
     skillsDiv.appendChild(div)
 })
 
+const form = document.querySelector('form')!
+form.addEventListener('submit', async e => {
+    e.preventDefault();
+    const responseDiv = document.getElementById('response')! as HTMLDivElement
+    const name = (document.getElementById('name')! as HTMLInputElement).value
+    const company = (document.getElementById('company')! as HTMLInputElement).value
+    const email = (document.getElementById('email')! as HTMLInputElement).value
+    const msg = (document.getElementById('msg')! as HTMLTextAreaElement).value
+    const data = await fetch('http://cossie.herokuapp.com/api/email', {
+        method: "POST",
+        body: JSON.stringify({name, company, email, msg}),
+        headers: {
+            "Content-Type": "application/json",
+        }
+    }) 
+    const response = await data.json()
+    responseDiv.classList.toggle('show')
+    if (response.status) {
+        responseDiv.style.color = 'springgreen';
+        responseDiv.innerText = "Thank you, your message has been sent successfully! I will get back to you as soon as possible."
+    }
+    else {
+        responseDiv.style.color = "red"
+        responseDiv.textContent = "Something went wrong."
+    }
+    responseDiv.style.fontSize = '1.25rem'
+    responseDiv.style.textAlign = 'center'
+    setTimeout(() => {
+        responseDiv.classList.toggle('show')
+    }, 3500)
+})
+const toggle = document.getElementById('lightDarkToggle') as HTMLDivElement;
+toggle.onclick = function toggleLightDark() {
+    const variables = getComputedStyle(root)
+    const clr1 = variables.getPropertyValue('--clr1'); 
+    const clr2 = variables.getPropertyValue('--clr2'); 
+    const clr3 = variables.getPropertyValue('--clr3'); 
+    const clr4 = variables.getPropertyValue('--clr4'); 
+    const clr5 = variables.getPropertyValue('--clr5'); 
+    const clr6 = variables.getPropertyValue('--clr6'); 
+    const mode = variables.getPropertyValue('--mode'); console.log(mode)
+    if (mode == "dark") {
+        root.style.setProperty('--textClr', clr1)
+        root.style.setProperty('--bgClr', clr2)
+        root.style.setProperty('--clrInfo', clr4)
+        root.style.setProperty('--tertiaryClr', clr3)
+        root.style.setProperty('--mode', "light")
+    }
+    else {
+        root.style.setProperty('--textClr', clr2)
+        root.style.setProperty('--bgClr', clr1)
+        root.style.setProperty('--clrInfo', clr3)
+        root.style.setProperty('--tertiaryClr', 'black')
+        root.style.setProperty('--mode', "dark")
+    }
+}
