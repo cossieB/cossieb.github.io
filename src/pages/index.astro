@@ -1,81 +1,216 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import NavLink from "../components/NavLink";
+import Social from "../components/Social";
+import Layout from "../layouts/Layout.astro";
+import "../styles/global.scss";
+import {
+    dockerSvg,
+    freeCCSvg,
+    githubSvg,
+    linkedInSvg,
+    phoneSvg,
+    puzzleSvg,
+    questionMarkSvg,
+} from "../svgs"
 ---
 
-<Layout title="Welcome to Astro.">
-	<main>
-		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
-		<p class="instructions">
-			To get started, open the directory <code>src/pages</code> in your project.<br />
-			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
-		</p>
-		<ul role="list" class="link-card-grid">
-			<Card
-				href="https://docs.astro.build/"
-				title="Documentation"
-				body="Learn how Astro works and explore the official API docs."
-			/>
-			<Card
-				href="https://astro.build/integrations/"
-				title="Integrations"
-				body="Supercharge your project with new frameworks and libraries."
-			/>
-			<Card
-				href="https://astro.build/themes/"
-				title="Themes"
-				body="Explore a galaxy of community-built starter themes."
-			/>
-			<Card
-				href="https://astro.build/chat/"
-				title="Community"
-				body="Come say hi to our amazing Discord community. ❤️"
-			/>
-		</ul>
-	</main>
+<Layout title="Buntu Cossie">
+    <main>
+        <section id="homeContainer">
+            <nav id="navbar">
+                <NavLink
+                    href="#projects"
+                    icon={puzzleSvg}
+                    label="Projects"
+                />
+                <NavLink
+                    href="#about"
+                    icon={questionMarkSvg}
+                    label="About"
+                    />
+                <NavLink
+                    href="#contact"
+                    icon={phoneSvg}
+                    label="Contact"
+                />
+            </nav>
+            <div id="welcome">
+                <h1 id="name">Cossie</h1>
+                <hr />
+                <h2 id="title">Full-Stack Developer</h2>
+            </div>
+            <div class="socials">
+                <Social
+                    href="https://github.com/cossieB"
+                    icon={githubSvg}
+                    label="GitHub"
+                />
+                <Social
+                    href="https://www.linkedin.com/in/cossieb/"
+                    icon={linkedInSvg}
+                    label="LinkedIn"
+                />
+                <Social
+                    href="https://hub.docker.com/u/cossie"
+                    icon={dockerSvg}
+                    label="Docker Hub"
+                />
+                <Social
+                    href="https://www.freecodecamp.org/cossie"
+                    icon={freeCCSvg}
+                    label="freeCodeCamp"
+                />
+
+                <div class="lineV"></div>
+            </div>
+        </section>
+    </main>
 </Layout>
 
-<style>
-	main {
-		margin: auto;
-		padding: 1.5rem;
-		max-width: 60ch;
-	}
-	h1 {
-		font-size: 3rem;
-		font-weight: 800;
-		margin: 0;
-	}
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
-	}
-	.instructions {
-		line-height: 1.6;
-		margin: 1rem 0;
-		border: 1px solid rgba(var(--accent), 25%);
-		background-color: white;
-		padding: 1rem;
-		border-radius: 0.4rem;
-	}
-	.instructions code {
-		font-size: 0.875em;
-		font-weight: bold;
-		background: rgba(var(--accent), 12%);
-		color: rgb(var(--accent));
-		border-radius: 4px;
-		padding: 0.3em 0.45em;
-	}
-	.instructions strong {
-		color: rgb(var(--accent));
-	}
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 1rem;
-		padding: 0;
-	}
+<style lang="scss">
+    @import "../styles/mixins", "../styles/variables";
+    // @import url("https://fonts.googleapis.com/css2?family=Stick+No+Bills:wght@600&display=swap");
+
+    $clr3: #0051ff;
+    $navHeight: 50px;
+
+    #homeContainer {
+        flex-direction: column;
+        color: white;
+        height: 100vh;
+
+        svg,
+        img {
+            fill: $neonblue;
+            color: $neonblue;
+
+            &:hover {
+                text-shadow: 0 0 10px 10px $neonblue;
+            }
+        }
+    }
+    
+    hr {
+        width: 25%;
+    }
+    #name,
+    #title {
+        font-family: "Stick No Bills", sans-serif;
+    }
+
+    #navbar {
+        width: 100%;
+        height: $navHeight;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        top: 0px;
+        left: 0px;
+
+        a {
+            color: $grayishhwhite;
+            font-size: 20px;
+            text-decoration: none;
+        }
+
+        svg {
+            height: 2rem;
+            width: 2rem;
+        }
+    }
+
+    .navDiv {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        padding-bottom: 0.5rem;
+        margin-top: 0.5rem;
+
+        &::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            width: 0%;
+            border-bottom: 2px solid $neonblue;
+            transition: width 200ms ease;
+        }
+        &:hover {
+            &::before {
+                width: 100%;
+            }
+            svg {
+                fill: $clr3 !important;
+                color: $clr3;
+            }
+        }
+    }
+
+    .homepageLinks {
+        padding-right: 2rem;
+    }
+
+    #welcome {
+        position: relative;
+        height: calc(100vh - $navHeight);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .socials {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 50%;
+        width: fit-content;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        > a {
+            margin-top: 1rem;
+        }
+
+        svg {
+            height: 2rem;
+            width: 2rem;
+            &:hover {
+                fill: $clr3 !important;
+            }
+        }
+    }
+
+    .lineV {
+        border-left: $neonblue 2px solid;
+        height: 100%;
+    }
+
+    @media (max-width: 768px) {
+        #navbar {
+            width: 100vw;
+            height: 5rem;
+            overflow-x: scroll;
+            -ms-overflow-style: none;
+
+            /* IE and Edge */
+            scrollbar-width: none;
+
+            /* Firefox */
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+
+            a {
+                font-size: 16px;
+            }
+
+            span {
+                display: none;
+            }
+        }
+    }
 </style>

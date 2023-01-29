@@ -1,0 +1,31 @@
+@mixin flexCenter($direction: row) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin container {
+    width: 100vw;
+    height: 100vh;
+}
+
+@mixin hideScrollbar($elem) {
+    #{$elem} {
+        height: 0%;
+        overflow-x: scroll;
+    }
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    #{$elem}::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* Hide scrollbar for IE, Edge and Firefox */
+    #{$elem} {
+        -ms-overflow-style: none;
+        /* IE and Edge */
+        scrollbar-width: none;
+        /* Firefox */
+    }
+
+}

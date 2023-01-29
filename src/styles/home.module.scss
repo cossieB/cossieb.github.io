@@ -1,0 +1,150 @@
+@import './mixins', './variables';
+@import url('https://fonts.googleapis.com/css2?family=Stick+No+Bills:wght@600&display=swap');
+
+$clr3: #0051ff;
+$navHeight: 50px;
+
+#homeContainer {
+    flex-direction: column;
+    color: white;
+    height: 100vh;
+
+    svg,
+    img {
+        fill: $neonblue;
+        color: $neonblue;
+
+        &:hover {
+            text-shadow: 0 0 10px 10px $neonblue;
+        }
+    }
+
+    hr {
+        width: 25%;
+    }
+}
+
+#name,
+#title {
+    font-family: 'Stick No Bills', sans-serif;
+}
+
+
+#navbar {
+    width: 100%;
+    height: $navHeight;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    top: 0px;
+    left: 0px;
+
+}
+
+.navDiv {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding-bottom: 0.5rem;
+    margin-top: 0.5rem;
+
+    &::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        width: 0%;
+        border-bottom: 2px solid $neonblue;
+        transition: width 200ms ease;
+    }
+
+    &:hover {
+        &::before {
+            width: 100%;
+        }
+
+        svg {
+            fill: $clr3 !important;
+            color: $clr3;
+        }
+    }
+}
+
+.homepageLinks {
+    padding-right: 2rem;
+    color: $grayishhwhite;
+    font-size: 20px;
+    text-decoration: none;
+    
+    svg {
+        height: 2rem;
+        width: 2rem;
+        fill: $neonblue;
+    }
+}
+
+#welcome {
+    position: relative;
+    height: calc(100vh - $navHeight);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.socials {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.socialLink {
+    margin-top: 1rem;
+    
+    svg {
+        fill: $neonblue;
+        height: 2rem;
+        width: 2rem;
+
+        &:hover {
+            fill: $clr3 !important;
+        }
+    }
+}
+
+.lineV {
+    border-left: $neonblue 2px solid;
+    height: 100%;
+}
+
+@media (max-width: 768px) {
+    #navbar {
+        width: 100vw;
+        height: 5rem;
+        overflow-x: scroll;
+        -ms-overflow-style: none;
+
+        /* IE and Edge */
+        scrollbar-width: none;
+
+        /* Firefox */
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        a {
+            font-size: 16px;
+        }
+
+        span {
+            display: none;
+        }
+    }
+}
