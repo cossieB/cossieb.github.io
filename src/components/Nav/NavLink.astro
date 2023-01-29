@@ -1,0 +1,14 @@
+---
+interface Props {
+    label: string;
+    href: string;
+}
+const { label, href } = Astro.props;
+---
+
+<div class="navDiv">
+    <a href={href}>
+        <slot />
+        <span class="navText">{label}</span>
+    </a>
+</div>

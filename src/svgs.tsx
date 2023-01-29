@@ -55,21 +55,21 @@ export const freeCCSvg = <svg xmlns="http://www.w3.org/2000/svg" xmlns-xlink="ht
             <g>
                 <use fill-opacity="1" opacity="1" xlink-href="#f2jrM5bTZu" />
                 <g>
-                    <use fill-opacity="0" stroke="#000" stroke-opacity="0" stroke-width="1" opacity="1"
+                    <use fill-opacity="1" stroke-opacity="1" stroke-width="1" opacity="1"
                         xlink-href="#f2jrM5bTZu" />
                 </g>
             </g>
             <g>
                 <use fill-opacity="1" opacity="1" xlink-href="#fePvRWSP7" />
                 <g>
-                    <use fill-opacity="0" stroke="#000" stroke-opacity="0" stroke-width="1" opacity="1"
+                    <use fill-opacity="1" stroke-opacity="1" stroke-width="1" opacity="1"
                         xlink-href="#fePvRWSP7" />
                 </g>
             </g>
             <g>
                 <use fill-opacity="1" opacity="1" xlink-href="#a1dIEIC07z" />
                 <g>
-                    <use fill-opacity="0" stroke="#000" stroke-opacity="0" stroke-width="1" opacity="1"
+                    <use fill-opacity="0" stroke-opacity="0" stroke-width="1" opacity="1"
                         xlink-href="#a1dIEIC07z" />
                 </g>
             </g>

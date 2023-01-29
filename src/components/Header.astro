@@ -1,0 +1,12 @@
+---
+type Props = {
+    label: string
+    id: string
+}
+const {label, id} = Astro.props;
+---
+
+<div class="header" id={id}>
+    <div class="line"></div>
+    <h3 >{label}</h3>
+</div>
