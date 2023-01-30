@@ -30,7 +30,7 @@ export default function Nav() {
         <nav ref={ref!}>
             <NavLink href="#about-header" label="About" icon={questionMarkSvg} />
             <NavLink href="#projects-header" label="Projects" icon={puzzleSvg} />
-            <NavLink href="skills-header" label="Proficiencies" icon={proficiencySvg} />
+            <NavLink href="#skills-header" label="Proficiencies" icon={proficiencySvg} />
             <NavLink href="#contact-header" label="Contact" icon={phoneSvg} />
         </nav>
 

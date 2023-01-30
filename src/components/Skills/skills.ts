@@ -125,7 +125,7 @@ export const misc: Lang[] = [
     },
     {
         language: "Firebase",
-        logo: "/logos/firebase.svg",
+        logo: "/logos/firebase.png",
         skill: 6
     },
     {
