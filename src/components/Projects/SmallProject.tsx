@@ -1,7 +1,7 @@
 import { Links } from "./Links";
-import type { Props } from "./types";
+import type { ProjectWithIndex, Props } from "./types";
 
-export function SmallProject(props: Props) {
+export function SmallProject(props: ProjectWithIndex) {
     return (
         <div class="smallTile">
             <img src={props.project.img} alt={props.project.title} loading="lazy" />

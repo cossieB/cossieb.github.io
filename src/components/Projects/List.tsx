@@ -9,6 +9,7 @@ export default function List() {
                 <Project
                     idx={idx()}
                     project={item}
+                    withToggle={false}
                 />
             }
         </For>

@@ -1,5 +1,5 @@
 import { createEffect, onCleanup, onMount } from "solid-js";
-import { phoneSvg, proficiencySvg, puzzleSvg, questionMarkSvg } from "../../svgs";
+import { linkedInSvg, phoneSvg, proficiencySvg, puzzleSvg, questionMarkSvg } from "../../svgs";
 import NavLink from "./NavLink";
 
 export default function Nav() {
@@ -8,13 +8,11 @@ export default function Nav() {
     onMount(() => window.addEventListener('scroll', animate))
     onCleanup(() => window.removeEventListener('scroll', animate))
     function animate() {
-        
+    
         if (window.scrollY < pos) {
             
-            // ref.style.top = '0px';
             if (window.scrollY > 100) {
                 ref.className = 'open'
-                
             }
             else {
                 ref.removeAttribute('class')
