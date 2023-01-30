@@ -6,6 +6,7 @@ import Welcome from "../components/Welcome/Welcome.astro";
 import Layout from "../layouts/Layout.astro";
 import Grid from "../components/Projects/Grid";
 import "../styles/global.scss";
+import Skills from "../components/Skills/SkillsList"
 ---
 
 <Layout title="Buntu Cossie">
@@ -32,5 +33,7 @@ import "../styles/global.scss";
         <List client:visible />
         <Header id="small-projects-header" label="Smaller Projects" />
         <Grid client:visible />
+        <Header id="skills-header" label="Skills" />
+        <Skills />
     </main>
 </Layout>
