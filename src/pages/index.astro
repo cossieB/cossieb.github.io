@@ -1,13 +1,14 @@
 ---
-import Header from "../components/Header.astro";
-import Nav from "../components/Nav/Nav.astro";
+import Header from "../components/Welcome/Header.astro";
+import Nav from "../components/Nav/Nav";
 import List from "../components/Projects/List";
-import Welcome from "../components/Welcome.astro";
+import Welcome from "../components/Welcome/Welcome.astro";
 import Layout from "../layouts/Layout.astro";
+import Grid from "../components/Projects/Grid";
 ---
 
 <Layout title="Buntu Cossie">
-    <Nav />
+    <Nav client:only="solid-js" />
     <main>
         <Welcome />
         <Header
@@ -25,9 +26,11 @@ import Layout from "../layouts/Layout.astro";
         </div>
         <Header
             id="projects-header"
-            label="Larger Scale Projects"
+            label="Projects"
         />
         <List />
+        <Header id="small-projects-header" label="Smaller Projects" />
+        <Grid />
     </main>
 </Layout>
 
@@ -86,16 +89,18 @@ import Layout from "../layouts/Layout.astro";
     }
 
     nav {
+        $height: 100px;
         padding-right: 1rem;
         position: fixed;
         display: flex;
         align-items: center;
         justify-content: flex-end;
         gap: 1rem;
-        height: 50px;
+        height: $height;
         width: 100vw;
         transition: all 400ms ease;
         z-index: 99;
+        top: 0;
 
         a {
             color: inherit;
@@ -108,10 +113,16 @@ import Layout from "../layouts/Layout.astro";
             height: 2rem;
             width: 2rem;
         }
+        &.closed {
+            top: -$height;
+        }
+        &.open {
+            background-color: black;
+            top: 0
+        }
     }
 
     .navDiv {
-        height: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
