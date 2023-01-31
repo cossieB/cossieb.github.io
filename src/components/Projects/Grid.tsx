@@ -17,7 +17,6 @@ export default function Grid() {
                 }
             </For>
             {selected() && <Details />}
-
         </div>
     )
 }

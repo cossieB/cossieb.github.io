@@ -1,0 +1,7 @@
+---
+import Game2048 from "../components/2048/2048";
+import Layout from "../layouts/Layout.astro";
+---
+<Layout title="2048">
+    <Game2048 client:only="solid-js" />
+</Layout>

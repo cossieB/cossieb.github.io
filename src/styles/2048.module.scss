@@ -1,0 +1,245 @@
+@use 'sass:math';
+@use 'sass:color';
+@import "mixins";
+
+$boardColor: #c8dd0f;
+.container {
+    background-color: #3b4b50;
+    @include flexCenter;
+    width: 100vw;
+    height: 100vh;
+}
+.game {
+    width: 100vw;
+    height: 100vh;
+}
+@mixin radius() {
+    border-radius: 5px;
+}
+.board {
+    position: relative;
+    display: grid;
+    background-color: $boardColor;
+
+    .block {
+        background-color: darken($color: $boardColor, $amount: 15);
+        @include radius;
+    }
+}
+@for $i from 1 through 11 {
+    .val#{math.pow(2,$i)} {
+        background-color: color.adjust($color: green, $hue: $i * $i * $i, $lightness: $i * 5%, $saturation: 100 - $i * 1%);
+    }
+}
+.controlElem {
+    @include flexCenter;
+    position: absolute;
+    @include radius;
+    transition: all 250ms ease;
+}
+
+.score {
+    font-family: 'Orbitron', sans-serif;
+    @include flexCenter;
+
+    >aside {
+        color: #c8dd0f;
+        font-size: 1rem;
+    }
+}
+
+.gameOver {
+    position: absolute;
+    font-family: 'Orbitron', sans-serif;
+    backdrop-filter: blur(10px) grayscale(1);
+    height: 100vh;
+    width: 100vw;
+    @include flexCenter(column);
+    top: 0;
+    left: 0;
+    color: #c8dd0f;
+    z-index: 50;
+
+    >div:first-child {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    h3 {
+        justify-self: flex-end;
+        padding: 0;
+        margin: 0;
+        text-align: center;
+    }
+
+    h4 {
+        justify-self: flex-start;
+        padding: 0;
+        margin: 0;
+        text-align: center;
+    }
+
+    .buttons {
+        @include flexCenter(row);
+        width: fit-content;
+        gap: 0.5rem;
+
+        >button {
+            height: 2rem;
+            border: none;
+        }
+
+        button:first-child {
+            background-color: springgreen;
+        }
+
+        button:last-child {
+            background-color: aqua;
+        }
+    }
+}
+
+.leadersPanel {
+    color: #c8dd0f;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.leaderboard {
+    align-self: center;
+    justify-content: center;
+}
+
+.signup {
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .game {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .score {
+        width: 80%;
+        height: 25%;
+        padding: 0;
+        margin: 0;
+        span {
+            font-size: 5rem;
+        }
+    }
+
+    $hgtwdth: 4rem; // USED IN JAVASCRIPT. DO NOT CHANGE!!!!!!!
+    $gap: 0.25rem;
+
+    .board {
+        grid-template-columns: repeat(4, $hgtwdth);
+        gap: $gap;
+        padding: $gap;
+
+        .block {
+            height: $hgtwdth;
+        }
+    }
+
+    .controlElem {
+        height: $hgtwdth;
+        width: $hgtwdth;
+    }
+
+    .leadersPanel {
+        height: 100vh;
+        background-color: rgba(0,0,0, 0.5);
+        backdrop-filter: blur(10px);
+        width: 100vw;
+        position: fixed;
+        top: 0;
+        left: 0;
+        transform: translateX(100vw);
+        transition: transform 250ms ease;
+    }
+
+    .leaderboard {
+        width: 100%;
+    }
+    .gameOver {
+        h3 {
+            font-size: 5rem;
+        }
+        h4 {
+            font-size: 4rem;
+        }
+    }
+    .HSToggle {
+        border: none;
+        background: none;
+        color: #c8dd0f;
+        margin-top: 2.25rem;
+        @include flexCenter;
+    }
+}
+
+@media (min-width: 768px) {
+    $hgtwdth: 7.5rem; // USED IN JAVASCRIPT. DO NOT CHANGE!!!!!!!
+
+    .game {
+        overflow: hidden;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        @include flexCenter;
+    }
+
+    .board {
+        gap: 0.5rem;
+        padding: 0.5rem;
+        grid-template-columns: repeat(4, $hgtwdth);
+
+        .block {
+            height: $hgtwdth;
+        }
+    }
+
+    .controlElem {
+        font-size: 3.5rem;
+        height: $hgtwdth;
+        width: $hgtwdth;
+    }
+
+    .score {
+        position: absolute;
+        font-size: 10rem;
+        top: 40%;
+        left: 1%;
+        width: 25%;
+    }
+
+    .leadersPanel {
+        position: absolute;
+        right: 0;
+        height: 100%;
+        margin-right: 1rem;
+    }
+
+    .leaderboard {
+        height: 50%;
+    }
+
+    .gameOver {
+
+        h3 {
+            font-size: 10rem;
+        }
+
+        h4 {
+            font-size: 8rem;
+        }
+    }
+}
