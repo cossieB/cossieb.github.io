@@ -26,7 +26,7 @@ export default function Pomodoro() {
                 </div>
                 <div id={styles["timer-div"]}>
                     {state.seconds > 0 ? <h2 id={styles["timer-label"]}>Session</h2> : <h2 id={styles["timer-label"]}> Break </h2>}
-                    <section id={styles["time-left"]}>{state.seconds > 0 ? state.left : state.breakTime}</section>
+                    <section id={styles["time-left"]}>{state.seconds > 0 ? state.left() : state.breakTime()}</section>
                 </div>
                 <div id={styles.buttons}>
                     <button id={styles.reset} class={styles.pomoBtn} onClick={reset}>

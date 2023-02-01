@@ -1,4 +1,5 @@
 import { createStore } from "solid-js/store";
+import type { ClickEvent } from "../../solidTypes";
 import { convert } from "./convert";
 
 const initialState = {
@@ -12,25 +13,20 @@ const initialState = {
     timer: NaN
 }
 
-type ButtonClick = MouseEvent & {
-    currentTarget: HTMLButtonElement;
-    target: Element;
-}
-
 const endBeep = new Audio("https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/audio/BeepSound.wav")
 const startBeep = new Audio("https://www.soundjay.com/buttons/beep-05.wav")
 
 const [state, setState] = createStore({...initialState})
 export { state }
 
-export function incSess(e: ButtonClick) {
+export function incSess(e: ClickEvent<HTMLButtonElement>) {
     if (!state.timer) {
         let s = Math.max(60, Math.min(3600, state.seconds + 60 * Number(e.currentTarget!.value)))
         let m = Math.max(1, Math.min(60, state.sessionMin + 1 * Number(e.currentTarget!.value)))
         setState({ sessionMin: m, seconds: s, sessionLength: s })
     }
 }
-export function incBreak(e: ButtonClick) {
+export function incBreak(e: ClickEvent<HTMLButtonElement>) {
     if (!state.timer) {
         let m = Math.max(1, Math.min(60, state.breakMin + 1 * Number(e.currentTarget!.value)))
         setState({ breakMin: m, break: m * 60 })

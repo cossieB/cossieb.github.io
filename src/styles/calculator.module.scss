@@ -1,0 +1,50 @@
+@use 'mixins';
+
+#calcContainer {
+    background: antiquewhite;
+	@include mixins.flexCenter;
+	@include mixins.container;
+}
+#calculator {
+	width: 400px;
+	background: black
+}
+#calcDisp {
+	height: 70px;
+	background: black;
+	color: white;
+	font-size: 25px;
+	text-align: right;
+}
+#calcButtons {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	height: 250px;
+	padding: 1rem 1rem;
+}
+.numButtons {
+	border-radius: 10px;
+	background: gray;
+	color: white;
+	font-size: 20px;
+}
+#result {
+	font-size: 15px;
+	color: #9C9C9C;
+	padding-top: 10px;
+	display: flex;
+	justify-content: space-around;
+}
+#clear {
+	background: red;
+    grid-area: 1 / 1 / 2 / 3;
+}
+#equals {
+	background: green;
+    grid-area: 5 / 3 / 6 / 5
+}
+@media screen and (max-width: 768px) {
+	#calculator {
+		width: 90%;
+	}
+}
