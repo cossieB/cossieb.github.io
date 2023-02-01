@@ -1,0 +1,63 @@
+@import 'mixins';
+
+#pomodoro {
+    font-family: Helvetica;
+    background: teal;
+    color: white;
+    @include flexCenter;
+    @include container;
+}
+
+.buttonDiv {
+    display: flex;
+    justify-content: space-around;
+}
+
+#controls {
+    display: flex;
+    justify-content: space-around;
+    border: 3px solid black;
+    padding: 1rem;
+    border-radius: 50px;
+}
+
+#outer {
+    width: 500px;
+}
+
+.pomoBtn {
+    width: 50px;
+    font-size: 25px;
+    background: none;
+    border: none;
+    color: white;
+}
+
+#timer-div {
+    text-align: center;
+}
+
+#buttons {
+    display: flex;
+    justify-content: space-around;
+
+    button {
+        color: white;
+        transform: scale(3);
+    }
+}
+
+#time-left {
+    font-family: 'Orbitron', sans-serif;
+    font-size: xx-large;
+}
+
+@media (max-width: 768px) {
+    #outer {
+        width: 90%;
+    }
+
+    #controls h2 {
+        text-align: center;
+    }
+}
