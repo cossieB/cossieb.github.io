@@ -1,5 +1,5 @@
 import styles from "../../styles/2048.module.scss"
-import { createEffect, createSignal } from "solid-js";
+import { createEffect, createSignal, For } from "solid-js";
 import Score from "../../components/Score";
 import type { Scores } from "./types";
 
@@ -32,7 +32,11 @@ function Leaders({ leaders, header }: P434443) {
     return (
         <>
              <h4>{header}</h4>
-             {leaders.slice(0, 5).map((item, idx) => <Score item={item} /> )}
+             <For each={leaders.slice(0,5)}>{item =>
+                <Score item={item} />
+             }
+             </For>
+
         </>
     )
 }
