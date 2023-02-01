@@ -4,6 +4,7 @@ import { Accessor, createEffect, Setter } from "solid-js";
 import { setUsername, username } from "../../components/Signup";
 import type { Elem } from "./ControlElem";
 import type { Scores } from "./types";
+import createBlock from "./createBlock";
 
 interface P {
     score: number
@@ -45,6 +46,8 @@ export default function GameOver(props: P) {
                         props.setGameOver(false);
                         props.setScore(0)
                         while (props.array.length > 0) props.array.pop()
+                        props.array.push(createBlock(props.array))
+                        props.array.push(createBlock(props.array))
                     }}>
                         Play Again
                     </button>

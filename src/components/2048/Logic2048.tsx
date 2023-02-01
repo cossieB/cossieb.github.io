@@ -1,9 +1,7 @@
 import { onCleanup, onMount, Setter } from 'solid-js';
 import { Board } from './Board';
 import type { Elem } from './ControlElem';
-
-
-export const numbers = new Array(16).fill(0).map((_, i) => i)
+import createBlock from './createBlock';
 
 interface P {
     setScore: Setter<number>
@@ -15,8 +13,8 @@ export default function Logic2048(props: P) {
 
     onMount(() => {
         document.addEventListener('keydown', handleKeyPress);
-        createBlock();
-        createBlock();
+        props.array.push(createBlock(props.array));
+        props.array.push(createBlock(props.array));
     })
     onCleanup(() => {
         document.removeEventListener('keydown', handleKeyPress)
@@ -93,8 +91,9 @@ export default function Logic2048(props: P) {
             });
         }
         removeDeleted()
-        createBlock();
-        props.array.length == 16 && checkGameOver()
+        if (props.array.length < 16) 
+             props.array.push(createBlock(props.array));
+        if (props.array.length == 16) checkGameOver()
     }
     function collide(toIncrease: Elem, toDelete: Elem) {
         toIncrease.value *= 2;
@@ -114,25 +113,8 @@ export default function Logic2048(props: P) {
             }
             i++
         }
-
     }
 
-    function createBlock() {
-        if (props.array.length == 16) return;
-        const empties = numbers.filter(num => !props.array.map(t => t.index()).includes(num));
-        const tempIndex = Math.floor(Math.random() * empties.length);
-        const index = empties[tempIndex];
-        const top = Math.floor(index / 4);
-        const left = index % 4;
-        const id = crypto.randomUUID();
-        const value = Math.random() < 0.75 ? 2 : 4;
-
-        props.array.push({
-            id, value, top, left, index() {
-                return 4 * this.top + this.left
-            },
-        });
-    }
     function checkGameOver() {
         props.array.sort((a, b) => {
             if (a.index() < b.index()) return -1
