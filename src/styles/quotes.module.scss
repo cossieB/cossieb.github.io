@@ -1,0 +1,95 @@
+@use 'mixins';
+
+#quoteContainer {
+    align-items: center;
+    background-color: black;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    transition: background 500ms ease;
+    overflow: hidden;
+    display: flex;
+    @include mixins.container;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+#quote-box {
+    background: none;
+    width: 25%;
+    border-radius: 10px;
+    padding: 1.5rem 1.5rem;
+    transition: all 500ms ease;
+    position: relative;
+    &::before {
+        top: -2rem;
+        left: -2rem;
+        font-size: 10rem;
+        position: absolute;
+        content: open-quote;
+    }
+    &::after {
+        bottom: 0rem;
+        right: -2rem;
+        font-size: 10rem;
+        position: absolute;
+        content: close-quote;
+    }
+}
+#text {
+    position: relative;
+}
+#author {
+    text-align: right;
+}
+
+#quoteButtons {
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+}
+
+#new-quote {
+    background: none;
+    color: white;
+    font-size: 16px;
+    border: none;
+    transition: all 500ms ease;
+
+    &:hover {
+        background: inherit;
+    }
+}
+
+#socialButtons svg {
+    transition: all 500ms ease;
+}
+
+#new-quote:active {
+    transform: scale(0.95);
+}
+
+@media screen and (min-width: 768px) {
+    #quote-box {
+        left: 15%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #quoteContainer {
+        font-size: .8rem;
+    }
+
+    #quote-box {
+        width: 80%;
+        background-color: white;
+        margin: 0 auto;
+    }
+
+    #socialButtons {
+        width: 70%;
+    }
+
+    .shareQuotes img {
+        padding-left: 3%;
+    }
+}

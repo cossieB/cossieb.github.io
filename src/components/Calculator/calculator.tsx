@@ -30,10 +30,14 @@ export default function Calculator() {
         setDisplay(ans)
     }
     function decimal() {
-        let dispNums = display().split(/\*|\+|\-|\//)
+        let dispNums = display().split(/\*|\+|\-|\//); console.log(dispNums)
         let curNum = dispNums[dispNums.length - 1];
         if (!curNum.includes(".")) {
-            setDisplay(prev => prev + ".")
+            if (curNum == "") {
+                setDisplay(prev => prev + "0.")
+            }
+            else
+                setDisplay(prev => prev + ".")
         }
     }
     function del() {
