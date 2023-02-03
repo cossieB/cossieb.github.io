@@ -1,0 +1,56 @@
+@import 'mixins';
+
+#sudokuContainer {
+    @include flexCenter;
+    @include container;
+    background-color: #8d008d88;
+}
+
+#sudoku {
+    display: grid;
+    grid-template-columns: repeat(9, 75px);
+    border: 5px solid black;
+}
+
+.sudoBlock {
+    display: flex;
+    border: 1px solid black;
+    height: 75px;
+    font-size: x-large;
+    @include flexCenter
+}
+
+.sudoBtn {
+    font-size: 25px;
+    padding: 1rem;
+    background: none;
+
+    &:hover {
+        background-color: black;
+        color: #8d008d;
+    }
+}
+
+@media (max-width: 768px) {
+    .sudoBtn {
+        height: auto;
+        font-size: 1rem;
+    }
+
+    #sudoku {
+        width: 95%;
+    }
+
+    .mobileBtns button {
+        border: none;
+        background: none;
+        font-size: 2rem;
+        margin-left: 1rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .mobileBtns {
+        display: none;
+    }
+}
