@@ -1,10 +1,12 @@
 import styles from "../../styles/2048.module.scss"
 import { Board } from "./Board";
-import { Accessor, createEffect, Setter } from "solid-js";
+import { onMount, Setter } from "solid-js";
 import { setUsername, username } from "../../components/Signup";
 import type { Elem } from "./ControlElem";
 import type { Scores } from "./types";
 import createBlock from "./createBlock";
+import { addDoc, collection } from "firebase/firestore";
+import { db } from "../../firebase";
 
 interface P {
     score: number
@@ -15,9 +17,10 @@ interface P {
 
 export default function GameOver(props: P) {
     
-    createEffect(() => {
+    onMount(() => {
         setLocal();
-    }, [])
+        setGlobal()
+    })
 
     function setLocal() {
         let localLeaders = localStorage.getItem('g2048');
@@ -30,6 +33,16 @@ export default function GameOver(props: P) {
         else {
             let leaders: Scores[] = [{ name: username(), date: new Date(), score: props.score }]
             localStorage.setItem('g2048', JSON.stringify(leaders))
+        }
+    }
+    async function setGlobal() {
+        try {
+            await addDoc(collection(db, 'g2048'), {
+                name: username(), date: new Date(), score: props.score 
+            })
+        }
+        catch (e: any) {
+            console.log(e.message)
         }
     }
 

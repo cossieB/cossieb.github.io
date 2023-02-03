@@ -1,10 +1,11 @@
 import { createSignal, For, Setter } from "solid-js"
+import styles from "../styles/signup.module.scss";
 
 interface P56467484 {
     className: string
 }
 
-export const [username, setUsername] = createSignal("Name");
+export const [username, setUsername] = createSignal("");
 
 export default function Signup(props: P56467484) {
     const [tempname, setTempName] = createSignal(username())
@@ -26,7 +27,7 @@ export default function Signup(props: P56467484) {
         setErrorMsg(e)
     }
     return (
-        <div id="signupForm" class={props.className || ""} >
+        <div id={styles.signupForm} class={props.className || ""} >
             <h4>Enter Your Name</h4>
             <input
                 oninput={(e) => {
@@ -34,9 +35,9 @@ export default function Signup(props: P56467484) {
                     setTempName(e.currentTarget.value);
                 }}
             /><br />
-            <button class="button2" onClick={submit}>Submit </button>
+            <button class={styles.button2} onClick={submit}>Submit </button>
             {errorMsg().length > 0 &&
-                <div id="errorDiv">
+                <div id={styles.errorDiv}>
                     <For each={errorMsg()} >
                         {item => <p> {item} </p>}
                     </For>

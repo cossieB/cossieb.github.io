@@ -4,7 +4,7 @@ import Signup, { username } from "../Signup";
 import styles from "../../styles/2048.module.scss"
 import type { Elem } from "./ControlElem";
 import GameOver from "./GameOver";
-import { LocalLeaders } from "./Leaders";
+import { GlobalLeaders, LocalLeaders } from "./Leaders";
 import Logic2048 from "./Logic2048";
 
 export default function Game2048() {
@@ -66,6 +66,7 @@ export default function Game2048() {
                                 </button>
                             }
                             <LocalLeaders />
+                            <GlobalLeaders />
                         </div>
                     </div>
                 </Match>

@@ -1,0 +1,23 @@
+@import 'mixins';
+
+#signupForm {
+    align-self: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+    width: 50%;
+    border: 1px solid #ebe9f8;
+}
+
+#errorDiv {
+    padding: inherit;
+    font-size: large;
+    color: red;
+    position: absolute;
+    line-height: 1;
+    bottom: 0;
+    width: 80%;
+}

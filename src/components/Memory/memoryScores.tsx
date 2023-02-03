@@ -9,7 +9,7 @@ import { state } from "./store";
 export function GlobalScores() {
     const [globalLeaders, setGlobalLeaders] = createSignal<Times[]>([])
     onMount(() => {
-        // addGlobal()
+        addGlobal()
     })
 
     async function addGlobal() {

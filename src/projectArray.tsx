@@ -118,45 +118,11 @@ export const projectArray: Projs[] = [
         stack: ["typescript", "react", "firebase", "framer motion"],
         repo: "https://github.com/cossieB/portfolio/tree/main/src/Components/Calculator"
     }, {
-        title: 'Quiz',
-        path: '/quiz',
-        img: 'screenshots/quiz.png',
-        description: "Quiz that tests your mental math skills. High scores stored in Firestore and local storage.",
-        stack: ["typescript", "react", "firebase", "framer motion", "firestore"],
-        repo: "https://github.com/cossieB/portfolio/tree/main/src/Components/Quiz"
-    }, {
-        title: "Tower of Hanoi",
-        path: "/hanoi",
-        img: "/screenshots/hanoi.png",
-        description: "Tower of Hanoi game.",
-        stack: ["typescript", "react", "firebase", "framer motion"],
-        repo: "https://github.com/cossieB/portfolio/tree/main/src/Components/Hanoi"
-    }, {
         title: "Random Quote Machine",
         path: "/quotes",
         img: "/screenshots/quotes.png",
         description: "Some lighthearted quotes from across the ages.",
         stack: ["typescript", "react", "firebase", "framer motion"],
         repo: "https://github.com/cossieB/portfolio/tree/main/src/Components/Quotes"
-    }, {
-        title: "Markdown Preview",
-        path: "markdown-preview",
-        img: "/screenshots/markdown.png",
-        description: "This neat little tool allows you to type markdown code and instantly see the output. Useful for git README.md files.",
-        stack: ["typescript", "react", "firebase", "framer motion", "marked"],
-        repo: "https://github.com/cossieB/portfolio/tree/main/src/Components/Markdown"
-    }, {
-        title: "Soundboard",
-        img: "/screenshots/soundboard.png",
-        path: "/soundboard",
-        description: "Press a button and play a sound. Features a volume slider",
-        stack: ["typescript", "react", "firebase", "framer motion"],
-        repo: "https://github.com/cossieB/portfolio/tree/main/src/Components/Soundboard"
-    }, {
-        title: "Message Board",
-        path: "/forum",
-        img: "/screenshots/forum.png",
-        description: "User interface for a message board. Messages aren't stored.",
-        stack: ["typescript", "react", "firebase", "framer motion"],
-        repo: "https://github.com/cossieB/portfolio/tree/main/src/Components/Forum"
-    }]
+    }
+]

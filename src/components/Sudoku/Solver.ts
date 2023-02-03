@@ -123,8 +123,7 @@ export default class Solver {
         cell.current = 0;
         return '.'
     }
-    async solve() {
-        await Promise.resolve();
+    solve() {
         this.reset();
         const blanks = this.array
             .filter(item => !item.frozen)

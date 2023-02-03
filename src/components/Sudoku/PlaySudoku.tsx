@@ -1,8 +1,7 @@
 import Block from "./Block"
 import Solver, { Cell } from "./Solver"
-import { puzzleStrings } from "./Sudoku"
 import styles from "../../styles/sudoku.module.scss";
-import { createEffect, createRenderEffect, createSignal, For, onCleanup, onMount, Setter } from "solid-js";
+import { createRenderEffect, createSignal, For, onCleanup, onMount, Setter } from "solid-js";
 import { createMutable } from "solid-js/store";
 
 interface Props {
@@ -12,12 +11,10 @@ interface Props {
 }
 
 export default function PlaySudoku(props: Props) {
-    const puzzle = createMutable(new Solver(props.puzzleString))
-
-    const [selected, setSelected] = createSignal<Cell>()
-    const [_rerender, triggerRerender] = createSignal(true)
-    const [clashes, setClashes] = createSignal<{ [key in 'row' | 'column' | 'region']: Set<Cell> }>()
     let ref: HTMLDivElement;
+    const puzzle = createMutable(new Solver(props.puzzleString))
+    const [selected, setSelected] = createSignal<Cell>()
+    const [clashes, setClashes] = createSignal<{ [key in 'row' | 'column' | 'region']: Set<Cell> }>()
     const [hasWon, setHasWon] = createSignal(false)
     const [error, setError] = createSignal(false)
 
@@ -72,14 +69,11 @@ export default function PlaySudoku(props: Props) {
         setError(false);
         setHasWon(false)
     }
-    async function solve() {
+    function solve() {
         setError(false);
         setClashes(undefined)
-        const result = await puzzle.solve()
-        if (result) {
-            triggerRerender(prev => !prev)
-        }
-        else {
+        const result = puzzle.solve()
+        if (!result) {
             setError(true)
         }
     }
@@ -103,13 +97,11 @@ export default function PlaySudoku(props: Props) {
         else if (old + num > 9) sum = 1;
         else sum = old + num
         selected()!.value = String(sum)
-        triggerRerender(prev => !prev)
     }
     function clear() {
         setClashes(undefined)
         if (!selected()! || selected()!.frozen) return;
         selected()!.value = '.'
-        triggerRerender(prev => !prev)
     }
 
     return (
