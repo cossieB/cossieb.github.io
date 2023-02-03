@@ -1,0 +1,71 @@
+@use './pregame';
+@import 'mixins';
+
+.container {
+    background: #a6a6c7;
+    color: white;
+    font-size: large;
+    @include flexCenter;
+    @include container;
+}
+
+#memoryBlock {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 0.5rem;
+}
+$delay: 250ms;
+.memoryCard {
+    aspect-ratio: 1;
+    height: 7.5rem;
+    position: relative;
+    font-size: xx-large;
+    @include flexCenter;
+    >div {
+        position: absolute;
+        inset: 0;
+        @include flexCenter;
+        transition: transform $delay linear;
+    }
+    svg {
+        transform: scale(3);
+    }
+    .backCard {
+        transition-delay: $delay;
+    }
+    .frontCard {
+        transition-delay: 0s;
+    }
+}
+.frontCard {
+    background-color: gold;
+    transform: rotateY(90deg);
+}
+.backCard {
+    background: url('../components/Memory/tile.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 3;
+    transform: rotateY(0deg);
+}
+
+.show {
+    > div {
+        transition: transform $delay linear;
+    }
+    .frontCard {
+        transform: rotateY(0deg);
+        transition-delay: $delay;
+    }
+    .backCard {
+        transform: rotateY(90deg);
+        transition-delay: 0s; 
+    }
+}
+
+@media (max-width: 768px) {
+    .memoryCard {
+        height: 4rem;
+    }
+}

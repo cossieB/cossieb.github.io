@@ -1,0 +1,103 @@
+@import 'mixins';
+
+#highScores {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    width: 100%;
+}
+.difficulty {
+    @include flexCenter();
+    color: white;
+    font-size: 1.25rem;
+    width: max-content;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    border: 2px solid white;
+    border-radius: 50rem;
+    position: relative;
+    >div {
+        margin: 0 0.75rem;
+        height: 100%;
+    }
+    button {
+        box-sizing: content-box;
+        font-size: 1.25rem;
+        padding: 0.75rem;
+        width: 1.5rem;
+        background: none;
+        border: none;
+        color: inherit;
+        border-left: 1px solid white;
+        border-right: 1px solid white;
+    }
+}
+.rules {
+    @include container;
+    @include flexCenter(column);
+    z-index: 30;
+    backdrop-filter: blur(10px);
+    position: absolute;
+}
+
+#finished {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    height: 100%;
+    button:hover {
+        background-color: white;
+        transform: scale(1.03);
+    }
+}
+
+.datesAndTimes {
+    display: flex;
+    justify-content: space-between;
+}
+
+.leaderboardContainer {
+    width: 33%;
+}
+
+.memScores {
+    display: flex;
+    > div:first-child {
+        margin-right: 2rem;
+    }
+}
+.memscorediv {
+    display: grid;
+    grid-template-columns: auto auto;
+    margin-bottom: 1rem;
+    > :last-child {
+        background-color: white;
+        color: #161661;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: x-large;
+        grid-area: 1 / 2 / 3 / 3;
+    }
+}
+
+@media (max-width: 768px) {
+    #highScores {
+        flex-direction: column-reverse;
+        align-items: center;
+        width: 100%;
+    }
+
+    .leaderboard,
+    .leadership {
+        width: 100%;
+    }
+
+    .leaderboardContainer {
+        width: 90%;
+    }
+
+    .datesAndTimes {
+        width: 100%;
+    }
+}

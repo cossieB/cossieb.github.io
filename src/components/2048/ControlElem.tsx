@@ -2,7 +2,7 @@ import { createEffect, onMount } from 'solid-js';
 import styles from "../../styles/2048.module.scss"
 
 export class Elem {
-    readonly id = crypto.randomUUID()
+    readonly id = Math.floor(Math.random() * 1000000).toString()
     public value = Math.random() < 0.75 ? 2 : 4;
     public deleted?: boolean
     constructor(

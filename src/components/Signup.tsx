@@ -4,7 +4,7 @@ interface P56467484 {
     className: string
 }
 
-export const [username, setUsername] = createSignal("");
+export const [username, setUsername] = createSignal("Name");
 
 export default function Signup(props: P56467484) {
     const [tempname, setTempName] = createSignal(username())

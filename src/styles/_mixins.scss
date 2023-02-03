@@ -27,5 +27,30 @@
         scrollbar-width: none;
         /* Firefox */
     }
+}
 
+.niceButton {
+    border-radius: 1rem;
+    padding: 0.5rem;
+    background: none;
+    border: 1px solid;
+
+    &:hover {
+        transform: scale(1.15);
+        transition: transform 200ms ease-in-out;
+    }
+}
+.button2 {
+    padding: 0 1rem;
+    font-size: large;
+    color: inherit;
+    height: 3rem;
+    background: none;
+    border: inherit;
+    background-color: none;
+
+    &:hover {
+        background-color: aliceblue;
+        color: initial
+    }
 }

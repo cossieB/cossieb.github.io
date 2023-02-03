@@ -8,7 +8,7 @@ export default function createBlock(array: Elem[]) {
     const index = empties[tempIndex];
     const top = Math.floor(index / 4);
     const left = index % 4;
-    const id = crypto.randomUUID();
+    const id = Math.floor(Math.random() * 1000000).toString()
     const value = Math.random() < 0.75 ? 2 : 4;
 
     return {id, value, top, left, index() {
