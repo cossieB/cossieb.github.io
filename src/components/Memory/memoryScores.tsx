@@ -51,7 +51,7 @@ export function LocalScores() {
 
     const [locallLeaders, setLocalLeaders] = createSignal<Times[]>([])
 
-    // onMount(addLocal)
+    onMount(addLocal)
 
     function addLocal() {
         const obj = {

@@ -20,7 +20,7 @@ export function LocalLeaders() {
     }, [])
     return (
         <div id={styles.localLeaders} class={styles.leaderboard}>
-            {leaders().length && <Leaders header="Local Leaders" leaders={leaders()} />}
+            {<Leaders header="Local Leaders" leaders={leaders()} />}
         </div>
     )
 }
@@ -38,6 +38,7 @@ export function GlobalLeaders() {
                 let name = doc.data().name
                 return { score, name, date }
             })
+            console.log(resArr)
             return resArr
         }
         catch (e: any) {
@@ -48,7 +49,7 @@ export function GlobalLeaders() {
 
     return (
         <div id={styles.globalLeaders} class={styles.leaderboard}>
-            {leaders() && <Leaders leaders={(leaders())} header="Global Leaders" />}
+            <Leaders leaders={leaders()} header="Global Leaders" />
         </div>
     )
 }
@@ -58,11 +59,11 @@ interface P434443 {
     header: string
 }
 
-function Leaders({ leaders, header }: P434443) {
+function Leaders(props: P434443) {
     return (
         <>
-            <h4>{header}</h4>
-            <For each={leaders.slice(0, 5)}>{item =>
+            <h4>{props.header}</h4>
+            <For each={props.leaders.slice(0, 5)}>{item =>
                 <Score item={item} />
             }
             </For>
