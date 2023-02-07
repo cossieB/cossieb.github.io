@@ -23,12 +23,12 @@ const colors = [
     '#28bb1b'
 ]
 
-const bgs: string[] = []
+const bgs: HTMLImageElement[] = []
 for (let i = 1; i <= 5; i++) {
-    bgs.push(`/assets/image${i}.jpg`)
+    const image = new Image();
+    image.src = `/assets/image${i}.jpg`
+    bgs.push(image)
 }
-const bgLength = bgs.length;
-const colorLength = colors.length;
 
 export default function Quotes() {
     const [bgIndex, setBgIndex] = createSignal(Math.floor(Math.random() * bgs.length))
@@ -46,7 +46,7 @@ export default function Quotes() {
         setMobileBG(Math.floor(Math.random() * colors.length))
     }
     return (
-        <main style={{ background: window.innerWidth > 768 ? `url(${background()})` : color() }} id={styles.quoteContainer} class={styles.container} >
+        <main style={{ background: window.innerWidth > 768 ? `url(${background().src})` : color() }} id={styles.quoteContainer} class={styles.container} >
             <Quote quote={quote} color={color} next={next} /> 
         </main>
     )
