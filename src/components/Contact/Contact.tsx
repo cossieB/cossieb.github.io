@@ -16,12 +16,14 @@ export default function Contact() {
             const response = await fetch('https://cossie.netlify.app/api/email', {
                 method: "POST",
                 headers: {
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
+                    "Accept": "appliction/json"
                 },
-                body: JSON.stringify(body)
+                body: JSON.stringify(body),
+                mode: 'no-cors'
             })
-            if (response.ok) setState("success")
-            else setState("error")
+            setState('success')
+
         }
         catch (error) {
             setState('error')
