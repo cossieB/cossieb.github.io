@@ -1,12 +1,12 @@
 type Tag = "humor" | "motivational"
 
-export interface QuoteType {
+interface Quote {
     readonly quote: string,
     readonly author: string,
     readonly tags: Tag[]
 }
 
-export const quotes: QuoteType[] = [
+export const quotes: Quote[] = [
     {
         quote: 'Sometimes, we screw things up for the better.',
         author: 'Nate Heywood',
@@ -871,5 +871,17 @@ export const quotes: QuoteType[] = [
         quote: "Why are you the way that you are? Honestly, every time I try to do something fun or exciting you make it not that way.",
         author: "Michael Scott",
         tags: ['humor']
-    }
+    }, {
+        quote: "Premature optimization is the root of all evil.",
+        author: "Donald Knuth",
+        tags: ['humor']
+    }, {
+        quote: "Don't take it so personally, okay? I don't like most people. He's in the vast majority.",
+        author: "Jonathan Byers",
+        tags: ['humor']
+    }, {
+        quote: "Okay it's official. I'm never having kids.",
+        author: "Dustin Henderson",
+        tags: ['humor']
+  }
 ]

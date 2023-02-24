@@ -344,7 +344,7 @@ form {
         background: none;
         transition: all 1000ms ease;
 
-        &:focus {
+        &:focus, &:not(:placeholder-shown) {
             outline: none;
 
             +label {

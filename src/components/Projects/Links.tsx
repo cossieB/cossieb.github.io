@@ -1,6 +1,5 @@
 import type { Props } from "./types";
-import { Portal } from "solid-js/web"
-import { selected, setSelected } from "./state";
+import { setSelected } from "./state";
 
 export function Links(props: Props) {
     return (

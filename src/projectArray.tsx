@@ -65,7 +65,7 @@ export const projectArray: Projs[] = [
         path: "/2048",
         description: "Clone of the 2048 puzzle/strategy game. Features mobile swipe controls. High scores stored in Firestore and local storage. This game has complex logic, so it was quite challenging to develop.",
         stack: ["typescript", "react", "firebase", "framer motion", "firestore", "sass"],
-        repo: "https://github.com/cossieB/portfolio/tree/main/src/Components/2048"
+        repo: "https://github.com/cossieB/cossieb.github.io/tree/main/src/components/2048"
     }, {
         title: "Microservices",
         img: "/screenshots/microservices.png",
@@ -88,41 +88,41 @@ export const projectArray: Projs[] = [
         path: "/wordle",
         description: "My recreation of the popular game Wordle",
         stack: ["typescript", "react", "firebase", "framer motion"],
-        repo: "https://github.com/cossieB/portfolio/tree/main/src/Components/wordle"
+        repo: "https://github.com/cossieB/cossieb.github.io/tree/main/src/components/Wordle"
     }, {
         title: 'Memory Game',
         path: '/memory',
         img: "/screenshots/memory.png",
         description: "Quiz that tests your memory. Features customizable game size. High scores stored in Firestore and local storage.",
         stack: ["typescript", "react", "firebase", "framer motion", "firestore"],
-        repo: "https://github.com/cossieB/portfolio/tree/main/src/Components/Memory"
+        repo: "https://github.com/cossieB/cossieb.github.io/tree/main/src/components/Memory"
     }, {
         title: "Sudoku",
         img: 'screenshots/sudoku.png',
         path: "/sudoku",
         description: "Play sudoku. Features clash highlighting and custom puzzle creator. It can also solve most puzzles using the backtracking algorithm.",
         stack: ["typescript", "react", "firebase", "framer motion"],
-        repo: "https://github.com/cossieB/portfolio/tree/main/src/Components/Sudoku"
+        repo: "https://github.com/cossieB/cossieb.github.io/tree/main/src/components/Sudoku"
     }, {
         title: "Pomodoro",
         img: "/screenshots/pomodoro.png",
         path: "/pomodoro",
         description: "Timer for the pomodoro technique. You can change the session and the break lengths.",
         stack: ["typescript", "react", "firebase", "framer motion"],
-        repo: "https://github.com/cossieB/portfolio/tree/main/src/Components/Pomodoro"
+        repo: "https://github.com/cossieB/cossieb.github.io/tree/main/src/components/Pomodoro"
     }, {
         title: "Calculator",
         img: "/screenshots/calculator.png",
         path: "/calculator",
         description: "Non-scientific calculator.",
         stack: ["typescript", "react", "firebase", "framer motion"],
-        repo: "https://github.com/cossieB/portfolio/tree/main/src/Components/Calculator"
+        repo: "https://github.com/cossieB/cossieb.github.io/tree/main/src/components/Calculator"
     }, {
         title: "Random Quote Machine",
         path: "/quotes",
         img: "/screenshots/quotes.png",
         description: "Some lighthearted quotes from across the ages.",
         stack: ["typescript", "react", "firebase", "framer motion"],
-        repo: "https://github.com/cossieB/portfolio/tree/main/src/Components/Quotes"
+        repo: "https://github.com/cossieB/cossieb.github.io/tree/main/src/components/Quotes"
     }
 ]

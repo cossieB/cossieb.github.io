@@ -33,15 +33,15 @@ export default function Contact() {
         <>
             <form ref={form!} onSubmit={submit}>
                 <div class="formControl">
-                    <input type="text" name="name" id="name" required />
+                    <input type="text" name="name" id="name" required  placeholder=" "/>
                     <label for="name">Name</label>
                 </div>
                 <div class="formControl">
-                    <input type="text" name="company" id="company" required />
+                    <input type="text" name="company" id="company" required  placeholder=" "/>
                     <label for="company">Organization</label>
                 </div>
                 <div class="formControl">
-                    <input type="email" name="email" id="email" required />
+                    <input type="email" name="email" id="email" required placeholder=" " />
                     <label for="email">E-mail</label>
                 </div>
                 <div class="formControl">
